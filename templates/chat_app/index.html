@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="data:,">
+    <title>会話</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+{% csrf_token %}
+<div class="main">
+    <div>
+        <div id="canvas"></div>
+    </div>
+    <div>
+        <ul id="chat" class="chat">
+        </ul>
+    </div>
+</div>
+<div class="inputMessage">
+    <input id="text" type="text" placeholder="会話を入力">
+    <button id="talk">話す</button>
+    <button id="mic"><img id="micimg" src ="{% static 'svg/microphone.svg' %}"/></button>
+</div>
+<audio id="audio" loop></audio>
+<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+<script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.142.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.142.0/examples/jsm/",
+            "@pixiv/three-vrm": "{% static 'js/three-vrm.module.js'%}",
+            "loadVRM": "{% static 'js/loadVRM.js'%}",
+            "mixamoVRMRigMap": "{% static 'js/mixamoVRMRigMap.js'%}",
+            "loadMixamoAnimation": "{% static 'js/loadMixamoAnimation.js'%}",
+            "audio": "{% static 'js/audio.js' %}",
+            "avatar": "{% static 'js/avatar.js' %}"
+        }
+    }
+</script>
+<script src="{% static 'js/main.js' %}" type="module"></script>
+<script>
+
+</script>
+</body>
+</html>
